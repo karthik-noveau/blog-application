@@ -1,4 +1,9 @@
 # MERN-Blog-application
+    MERN stack blog project, which includes
+      |__ user authentication
+      |__ blog post creation
+      |__ blog post update
+      |__ blog post delete
 
 # Folder Structure
 
