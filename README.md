@@ -5,13 +5,13 @@
     service.js
 
     config
-        |__ db.js
+      |__ db.js
 
     routes
-        |__ userRoutes.js
+      |__ userRoutes.js
 
     controllers
-        |__ userControllers.js
+      |__ userControllers.js
 
     models
-        |__ userModel.js
+      |__ userModel.js
