@@ -64,7 +64,7 @@ export const MobileHeader = ({ loginInfo, handleLogout }) => {
         }}
       >
         <div className={styles.leftInfo}>
-          <Link to="/home" onClick={() => setIsOpen(false)}>
+          <Link to="/blogs" onClick={() => setIsOpen(false)}>
             <p>Noveau Blog</p>
           </Link>
         </div>
