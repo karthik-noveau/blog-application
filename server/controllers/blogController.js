@@ -157,7 +157,9 @@ export const updateBlogController = async (req, res) => {
 export const deleteBlogController = async (req, res) => {
   try {
     // Find the blog and populate the userId field in one query
-    const blog = await blogModel.findById(req.params.id).populate("userId");
+    const blog = await blogModel
+      .findByIdAndDelete(req.params.id)
+      .populate("user");
 
     // Check if blog exists
     if (!blog) {
@@ -175,16 +177,12 @@ export const deleteBlogController = async (req, res) => {
     //----here, populate() fetch the complete data of user schema in userId property
 
     // Remove the blog from the user's blogs array
-    let pullData = await blog.userId.blogs.pull(blog);
+    let pullData = await blog.user.blogs.pull(blog);
 
     console.log("pull() :: ", pullData);
 
     // Save the updated user document
-    await blog.userId.save();
-
-    // Delete the blog
-    let removeData = await blog.remove();
-    console.log("remove() :: ", removeData);
+    await blog.user.save();
 
     return res.status(200).send({
       success: true,
