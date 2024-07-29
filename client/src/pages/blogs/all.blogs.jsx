@@ -22,7 +22,9 @@ export function AllBlogs() {
   const getAllBlogs = async () => {
     setIsLoading(true);
     try {
-      const { data } = await axios.get("/api/v1/blog/all-blogs");
+      const { data } = await axios.get(
+        "https://blog-application-hrw2.onrender.com/api/v1/blog/all-blogs"
+      );
       if (data.success) {
         setBlogsList(data.blogs);
         setUpdatedBlogsList(data.blogs.filter((blog, index) => index < 9));

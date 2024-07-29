@@ -13,12 +13,15 @@ export const CreateBlog = () => {
   const onBlogCreate = async (values) => {
     console.log(values, loginInfo);
     try {
-      const { data } = await axios.post("/api/v1/blog/create-blog", {
-        userId: loginInfo.id,
-        title: values.title,
-        description: values.description,
-        image: values.imageURL,
-      });
+      const { data } = await axios.post(
+        "https://blog-application-hrw2.onrender.com/api/v1/blog/create-blog",
+        {
+          userId: loginInfo.id,
+          title: values.title,
+          description: values.description,
+          image: values.imageURL,
+        }
+      );
       if (data.success) {
         navigate("/user-blogs");
       }

@@ -35,7 +35,7 @@ export function UserBlogs() {
     setIsLoading(true);
     try {
       const { data } = await axios.get(
-        `/api/v1/blog/user-blogs/${loginInfo.id}`
+        `https://blog-application-hrw2.onrender.com/api/v1/blog/user-blogs/${loginInfo.id}`
       );
       if (data.success) {
         setBlogsList(data.userBlogs.blogs);
