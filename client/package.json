@@ -1,8 +1,8 @@
 {
   "name": "client",
-  "proxy": "http://localhost:8080",
+  "proxy": "https://blog-application-hrw2.onrender.com",
   "version": "0.1.0",
-   "private": true,
+  "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
     "@testing-library/jest-dom": "^5.17.0",
