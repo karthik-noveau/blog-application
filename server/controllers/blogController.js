@@ -26,21 +26,22 @@ export const createBlogController = async (req, res) => {
     }
 
     const blog = new blogModel({ title, description, image, userId });
+    console.log("blog ", blog);
 
     // session is created
     const session = await mongoose.startSession();
     session.startTransaction();
+
     await blog.save({ session });
     exisitingUser.blogs.push(blog);
     await exisitingUser.save({ session });
+
     await session.commitTransaction();
 
     //@ startTransaction()
     //----meaning that all changes made within a transaction are treated as a single unit of work.
     //----If any part of the transaction fails (e.g., due to an error), the entire transaction is rolled back,
     //    undoing any changes that were made, and leaving the database in its original state.
-
-    await blog.save();
 
     return res.status(201).send({
       success: true,
