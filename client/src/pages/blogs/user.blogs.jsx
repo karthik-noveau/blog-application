@@ -58,6 +58,7 @@ export function UserBlogs() {
     );
     if (data.success) {
       dispatch(blogActions.setIsBlogDeleted(true));
+      setIsLoading(false);
     }
   };
 

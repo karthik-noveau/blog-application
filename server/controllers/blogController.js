@@ -183,7 +183,7 @@ export const deleteBlogController = async (req, res) => {
 
     // Save the updated user document
     await blog.user.save();
-
+    console.log("blog deleted");
     return res.status(200).send({
       success: true,
       message: "Blog Deleted!",
