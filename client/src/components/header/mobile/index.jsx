@@ -126,24 +126,25 @@ export const MobileHeader = ({ loginInfo, handleLogout }) => {
               </React.Fragment>
             )}
             {!loginInfo?.id && (
-              <p
-                className={`${styles.menuItem} ${
-                  isOpen ? "sui-aos-down3" : "sui-aos-up"
-                } ${location.pathname === "/login" ? styles.active : ""}`}
-                onClick={() => onMenuClick("/login")}
-              >
-                Login
-              </p>
-            )}
-            {loginInfo?.id && (
-              <p
-                className={`${styles.menuItem} ${
-                  isOpen ? "sui-aos-down3" : "sui-aos-up"
-                } ${location.pathname === "/register" ? styles.active : ""}`}
-                onClick={() => onMenuClick("/register")}
-              >
-                Register
-              </p>
+              <React.Fragment>
+                <p
+                  className={`${styles.menuItem} ${
+                    isOpen ? "sui-aos-down3" : "sui-aos-up"
+                  } ${location.pathname === "/login" ? styles.active : ""}`}
+                  onClick={() => onMenuClick("/login")}
+                >
+                  Login
+                </p>
+
+                <p
+                  className={`${styles.menuItem} ${
+                    isOpen ? "sui-aos-down3" : "sui-aos-up"
+                  } ${location.pathname === "/register" ? styles.active : ""}`}
+                  onClick={() => onMenuClick("/register")}
+                >
+                  Register
+                </p>
+              </React.Fragment>
             )}
           </div>
           <div
