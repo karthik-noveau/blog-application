@@ -38,7 +38,7 @@ export function AllBlogs() {
 
   function renderBlogs() {
     if (isLoading) {
-      return <div>loading...</div>;
+      return <div className={styles.emptyStateWrapper}>loading...</div>;
     } else if (updatedBlogsList.length === 0) {
       return (
         <div className={styles.emptyStateWrapper}>

@@ -9,7 +9,6 @@ import { Register } from "./pages/register";
 import { CreateBlog } from "./pages/create_blog";
 import { UpdateBlog } from "./pages/update_blog";
 
-import styles from "./app.module.css";
 import "./constant.css";
 
 function App() {
