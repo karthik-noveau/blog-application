@@ -14,3 +14,9 @@
 .formWrapper {
   width: 500px;
 }
+
+@media (max-width: 460px) {
+  .formWrapper {
+    width: 90%;
+  }
+}
