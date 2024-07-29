@@ -1,0 +1,11 @@
+.emptyStateWarper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.emptyStateWarper img {
+  width: 130px;
+}
+.emptyStateWarper p {
+  color: gray;
+}

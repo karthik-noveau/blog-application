@@ -1,0 +1,44 @@
+.blogsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.blogsContainer {
+  width: 80%;
+  display: grid;
+  grid-template-columns:
+    minmax(300px, 300px)
+    minmax(300px, 300px)
+    minmax(300px, 300px);
+  grid-auto-rows: minmax(auto, 3fr);
+  gap: 60px;
+  justify-content: center;
+  padding: 100px 70px;
+  overflow: hidden;
+}
+
+.emptyStateWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 90px);
+}
+
+@media (max-width: 1140px) {
+  .blogsContainer {
+    gap: 35px;
+    grid-template-columns:
+      minmax(300px, 300px)
+      minmax(300px, 300px);
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blogsContainer {
+    gap: 35px;
+    grid-template-columns: minmax(300px, 300px);
+    gap: 60px;
+  }
+}

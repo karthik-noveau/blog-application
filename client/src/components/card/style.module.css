@@ -1,0 +1,68 @@
+.cardContainer {
+  width: 100%;
+  height: 450px;
+  border-radius: 10px;
+  background-color: #fcfcfc;
+  padding-bottom: 15px;
+  box-shadow: 6px 3px 14px 4px #f3f3f3;
+}
+.cardContainer img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+.cardContainer .title {
+  font-size: 19px;
+  color: #4c4c4c;
+}
+
+.titleContainer {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  align-items: center;
+  margin: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d5d5d5;
+}
+
+.iconContaier {
+  display: flex;
+  gap: 10px;
+}
+
+.editIcon {
+  color: gray;
+  font-size: 20px;
+  cursor: pointer;
+}
+.deleteIcon {
+  color: #ff3939;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cardContainer .time {
+  color: #979797;
+  font-size: 15px;
+  margin: 10px;
+  font-weight: 200;
+}
+.cardContainer .description {
+  padding: 0px 10px 10px 10px;
+  font-size: 15px;
+  line-height: 20px;
+  color: #535353;
+  font-weight: 300;
+  height: 160px;
+
+  overflow: hidden; /* Hide the overflow text */
+  display: -webkit-box; /* Use the box model for WebKit browsers */
+  -webkit-box-orient: vertical; /* Vertical orientation */
+  -webkit-line-clamp: 8; /* Limit the number of lines */
+  line-clamp: 8; /* Non-standard property but used for completeness */
+  line-height: 1.4em; /* Set a line height to ensure consistent clamping */
+  text-overflow: ellipsis; /* Add ellipsis when text overflows */
+  white-space: normal; /* Wrap text inside the container */
+  word-break: break-word; /* Break long words */
+}

@@ -1,0 +1,127 @@
+.formValidation {
+  /* input vars */
+  --font-color: #212121;
+  --place-holder-color: #808080;
+  --border-color: #dedede;
+  --border-color-hover: var(--primary-blue);
+  --background-color: #f9f9f9;
+  --input-height: 45px;
+  /* button vars */
+  --button-font-color: white;
+  --button-bg-color: black;
+  --button-bg-color-hover: rgb(20, 15, 15);
+  --button-width: 100%;
+  --button-height: 40px;
+}
+
+.formValidation .ant-form-item input {
+  height: var(--input-height);
+  border-radius: 3px;
+  width: 100%;
+}
+/* .formValidation .ant-input-affix-wrapper {
+  border-radius: 30px !important;
+  background: var(--background-color);
+  height: var(--input-height);
+} */
+.formValidation .ant-form-item textarea {
+  height: 65px;
+}
+.formValidation .ant-form-item input {
+  height: var(--input-height);
+  border-radius: 25px;
+  background-color: var(--background-color) !important;
+  color: var(--font-color);
+  border-color: var(--border-color) !important;
+  padding-left: 20px;
+}
+.formValidation .ant-form-item input::placeholder,
+.formValidation .ant-form-item textarea::placeholder {
+  color: var(--border-color);
+}
+.formValidation .ant-form-item textarea {
+  height: var(--input-height);
+  border-radius: 25px;
+  background-color: var(--background-color) !important;
+  color: var(--font-color);
+  border-color: var(--border-color) !important;
+  padding-left: 20px;
+  padding-top: 11px;
+}
+.formValidation .ant-input:hover {
+  border-color: var(--border-color-hover) !important;
+  transition: all 0.5s;
+}
+/* Target the input and textarea placeholders */
+.formValidation input::placeholder,
+.formValidation textarea::placeholder {
+  color: var(
+    --place-holder-color
+  ) !important; /* Change this color to your desired placeholder color */
+}
+
+/* For better cross-browser support */
+.formValidation input::-webkit-input-placeholder,
+.formValidation textarea::-webkit-input-placeholder {
+  color: var(
+    --place-holder-color
+  ) !important; /* Change this color to your desired placeholder color */
+}
+
+.formValidation input::-moz-placeholder,
+.formValidation textarea::-moz-placeholder {
+  color: var(
+    --place-holder-color
+  ) !important; /* Change this color to your desired placeholder color */
+}
+
+.formValidation input:-ms-input-placeholder,
+.formValidation textarea:-ms-input-placeholder {
+  color: var(
+    --place-holder-color
+  ) !important; /* Change this color to your desired placeholder color */
+}
+
+.formValidation input:-moz-placeholder,
+.formValidation textarea:-moz-placeholder {
+  color: var(
+    --place-holder-color
+  ) !important; /* Change this color to your desired placeholder color */
+}
+
+.formValidation .ant-input:focus {
+  border-color: var(--border-color-hover) !important;
+}
+.formValidation .ant-form-item button {
+  background: var(--button-bg-color-hover);
+  background-size: 200% 100%;
+  background-position: right center;
+  width: var(--button-width);
+  height: var(--button-height);
+  transition: all 0.5s;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 200;
+  color: var(--button-font-color);
+}
+.formValidation .ant-btn-primary:hover {
+  transition: all 0.5s;
+  background: var(--button-bg-color) !important;
+  background-size: 200% 100%;
+  background-position: right center;
+}
+
+.formValidation .ant-form-item .ant-form-item-explain-error {
+  font-size: 12px;
+  padding-left: 20px;
+}
+
+/* ----------------media quries----------------
+  --------------------------------------------- */
+@media (max-width: 425px) {
+  .formValidation .ant-form-item button {
+    width: 130px;
+    height: 40px;
+    font-size: 17px;
+  }
+}

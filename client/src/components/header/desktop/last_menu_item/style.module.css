@@ -1,0 +1,16 @@
+.lastMenuWrapper {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+  border-radius: 50px;
+  padding: 10px 30px;
+  cursor: pointer;
+  transition: 1s color;
+  height: fit-content;
+}
+
+.lastMenuWrapper:hover {
+  background-color: #232323;
+  transition: 1s color;
+}

@@ -1,0 +1,178 @@
+/* variables */
+.SUIMobileNavbar {
+  --width: 90%;
+  --height: 50px;
+  --MenuBarbgColor: whiteSmoke;
+
+  --logoWidth: 85px;
+
+  --hamburgerIconFontSize: 30px;
+  --hamburgerIconColor: #00798d;
+  --padding: 0px 0;
+}
+
+.SUIMobileNavbarDrawer {
+  --DrawerbgColor: var(--MenuBarbgColor);
+
+  --menuItemColor: #00798d;
+  --menuItemFontSize: 16px;
+  --menuItemFontWeight: 500;
+  --menuItemHoverColor: #004f5c;
+  --menuItemActiveColor: #004f5c;
+  --menuItemSelectedBgColor: #edededad;
+
+  --subMenuTitleFontSize: 17px;
+  --subMenuTitleFontWeight: 500;
+
+  --subMenuItemFontSize: 15px;
+  --subMenuDropdownBgColor: transparent;
+  --subMenuDropdownBorderColor: #ebebeb;
+}
+
+/* mobile navigation container bar */
+.SUIMobileNavbarContainer {
+  width: 100%;
+  height: var(--height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--MenuBarbgColor);
+  padding: var(--padding);
+  box-shadow: 0px 6px 15px -6px #dbdbdb;
+}
+
+.SUIMobileNavbarContainerBox {
+  width: var(--width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* logo */
+.SUIMobileNavbarLogo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.SUIMobileNavbarLogo img {
+  width: var(--logoWidth);
+}
+
+/* hamburger menu button */
+.SUIMobileNavbarHamburgerButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.SUIMobileNavbarHamburgerButton .HamburgerIcon {
+  font-size: var(--hamburgerIconFontSize);
+  color: var(--hamburgerIconColor);
+}
+
+/* collapse */
+.SUIMobileNavbar
+  .ant-collapse
+  .ant-collapse-content
+  > .ant-collapse-content-box {
+  padding: 0 !important;
+}
+
+.SUIMobileNavbar .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+  padding: 0 !important;
+}
+
+/* drawer */
+.SUIMobileNavbarDrawer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--DrawerbgColor);
+  border-top: 1.5px solid #f1f1f1e0;
+  box-shadow: none !important;
+  padding: 7px 0 13px 0;
+}
+
+.SUIMobileNavbarDrawerContainer {
+  width: 94%;
+  display: flex;
+  justify-content: flex-start;
+  background-color: transparent;
+}
+
+.SUIMobileNavbarDrawerContainerBox {
+  border-inline-end: none !important;
+  width: 100% !important;
+  background-color: transparent;
+}
+
+/* menu items*/
+.SUIMobileNavbarDrawer .ant-menu-item {
+  font-weight: var(--menuItemFontWeight);
+  font-size: var(--menuItemFontSize) !important;
+  padding: 0 10px !important;
+  width: calc(100% - 20px) !important;
+  color: var(--menuItemColor) !important;
+}
+
+.SUIMobileNavbarDrawer .ant-menu-item-selected {
+  background-color: var(--menuItemSelectedBgColor) !important;
+  color: var(--menuItemActiveColor) !important;
+}
+
+.SUIMobileNavbarDrawer .ant-menu-item:hover {
+  color: var(--menuItemHoverColor) !important;
+}
+
+/* submenu items*/
+.SUIMobileNavbarDrawer .ant-menu-submenu-title {
+  font-size: var(--subMenuTitleFontSize) !important;
+  font-weight: var(--subMenuTitleFontWeight);
+  color: var(--menuItemColor) !important;
+  padding-left: 10px !important;
+}
+
+.SUIMobileNavbarDrawer .ant-menu-submenu-title i {
+  scale: 1.4;
+}
+
+.SUIMobileNavbarDrawer .custom-submenu .ant-menu-item {
+  font-size: var(--subMenuItemFontSize) !important;
+}
+
+.SUIMobileNavbarDrawer .ant-menu-sub.ant-menu-inline {
+  background-color: var(--subMenuDropdownBgColor) !important;
+  border-radius: 0px !important;
+  margin-bottom: 0 !important;
+  margin-left: 16px;
+  margin-right: 0px;
+  padding: 0 0 0px 8px !important;
+  border-left: 2px solid var(--subMenuDropdownBorderColor);
+  border-radius: 0;
+}
+.SUIMobileNavbarDrawer .ant-menu-sub.ant-menu-inline li {
+  padding-left: 18px !important;
+}
+
+.SUIMobileNavbarDrawer .ant-menu-submenu-title:hover {
+  background-color: transparent !important;
+  color: var(--menuItemHoverColor) !important;
+}
+
+.SUIMobileNavbarDrawer .ant-menu-submenu-selected.ant-menu-submenu-title {
+  color: var(--menuItemActiveColor) !important;
+}
+
+.SUIMobileNavbarDrawer .ant-menu-submenu-title:hover {
+  color: var(--menuItemColor) !important;
+}
+
+.SUIMobileNavbarDrawer .ant-submenu-title:hover {
+  color: var(--menuItemColor) !important;
+}
+
+/* Media Quries */
+@media (min-width: 1024px) {
+  .SUIMobileNavbar {
+    display: none;
+  }
+}

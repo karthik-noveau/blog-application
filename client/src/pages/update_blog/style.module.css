@@ -1,0 +1,16 @@
+.createBlogContainer {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  align-items: center;
+}
+.title {
+  font-size: 25px;
+  color: var(--primary-blue);
+  text-align: center;
+  font-weight: 400;
+}
+.formWrapper {
+  width: 500px;
+}

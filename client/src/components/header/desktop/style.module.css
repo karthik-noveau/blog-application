@@ -1,0 +1,47 @@
+.headerContainer {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+/* menu logo */
+.logoContainer {
+  cursor: pointer;
+}
+.logoContainer img {
+  width: 150px;
+  object-fit: contain;
+}
+.logoContainer p {
+  color: rgb(75, 75, 75);
+  font-size: 28px;
+  font-weight: 500;
+}
+.logoContainer img {
+  width: 100px;
+  object-fit: cover;
+}
+
+/* center position menu */
+.centerMenuWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  background-color: rgb(255 255 255);
+  box-shadow: 1px 1px 32px 1px #e5e5e5;
+  padding: 0 40px;
+}
+
+/* right position menu */
+.rightMenuWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  background-color: rgb(255 255 255);
+  box-shadow: 1px 1px 32px 1px #e5e5e5;
+  padding: 0 40px;
+}

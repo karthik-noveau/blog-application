@@ -1,0 +1,18 @@
+.menuWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menuItem {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+  color: #292929;
+  transition: 1s color;
+}
+
+.menuItem:hover {
+  color: gray;
+  transition: 1s color;
+}
