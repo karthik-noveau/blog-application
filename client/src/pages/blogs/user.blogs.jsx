@@ -50,6 +50,7 @@ export function UserBlogs() {
   const onUpdateBlog = (data) => {
     navigate(`/blog-details/${data._id}`);
   };
+
   const onDeleteBlog = async (info) => {
     setIsLoading(true);
     const { data } = await axios.delete(

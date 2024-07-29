@@ -175,7 +175,7 @@ export const deleteBlogController = async (req, res) => {
     //----here, populate() fetch the complete data of user schema in userId property
 
     // Remove the blog from the user's blogs array
-    let pullData = await blog.userId.blogs.pull(blog._id);
+    let pullData = await blog.userId.blogs.pull(blog);
 
     console.log("pull() :: ", pullData);
 
@@ -183,7 +183,8 @@ export const deleteBlogController = async (req, res) => {
     await blog.userId.save();
 
     // Delete the blog
-    await blog.remove();
+    let removeData = await blog.remove();
+    console.log("remove() :: ", removeData);
 
     return res.status(200).send({
       success: true,
