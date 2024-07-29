@@ -52,7 +52,9 @@ export function UserBlogs() {
   };
   const onDeleteBlog = async (info) => {
     setIsLoading(true);
-    const { data } = await axios.delete(`/api/v1/blog/delete-blog/${info._id}`);
+    const { data } = await axios.delete(
+      `https://blog-application-hrw2.onrender.com/api/v1/blog/delete-blog/${info._id}`
+    );
     if (data.success) {
       dispatch(blogActions.setIsBlogDeleted(true));
     }

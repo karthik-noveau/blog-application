@@ -20,7 +20,9 @@ export const UpdateBlog = () => {
   }, []);
 
   const getBlogData = async () => {
-    const { data } = await axios.get(`/api/v1/blog/get-blog/${blogId}`);
+    const { data } = await axios.get(
+      `https://blog-application-hrw2.onrender.com/api/v1/blog/get-blog/${blogId}`
+    );
     if (data.success) {
       setBlogData(data.blog);
     }
@@ -28,12 +30,15 @@ export const UpdateBlog = () => {
 
   const onBlogUpdate = async (values) => {
     try {
-      const { data } = await axios.put(`/api/v1/blog/update-blog/${blogId}`, {
-        userId: loginInfo.id,
-        title: values.title,
-        description: values.description,
-        image: values.image,
-      });
+      const { data } = await axios.put(
+        `https://blog-application-hrw2.onrender.com/api/v1/blog/update-blog/${blogId}`,
+        {
+          userId: loginInfo.id,
+          title: values.title,
+          description: values.description,
+          image: values.image,
+        }
+      );
       if (data.success) {
         navigate("/user-blogs");
       }
