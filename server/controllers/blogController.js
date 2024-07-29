@@ -26,7 +26,6 @@ export const createBlogController = async (req, res) => {
     }
 
     const blog = new blogModel({ title, description, image, userId });
-    console.log("blog ", blog);
 
     // session is created
     const session = await mongoose.startSession();
@@ -86,7 +85,6 @@ export const getAllBlogController = async (req, res) => {
 export const getUserBlogsController = async (req, res) => {
   try {
     const userBlogs = await userModel.findById(req.params.id).populate("blogs");
-    console.log("userBlogs ", userBlogs);
     if (!userBlogs) {
       return res.status(404).send({
         success: false,
@@ -158,9 +156,10 @@ export const updateBlogController = async (req, res) => {
 //  ************** delete a blog ***************
 export const deleteBlogController = async (req, res) => {
   try {
-    const blog = await blogModel
-      .findByIdAndDelete(req.params.id)
-      .populate("userId");
+    const blog = await blogModel.findByIdAndDelete(req.params.id);
+
+    console.log("findByIdAndDelete :: ", blog);
+    console.log("populate(userId) :: ", blog.populate("userId"));
 
     //@ populate()
     //----used to retrieve related data from other collections and populate it within the current document you're fetching.
@@ -168,6 +167,9 @@ export const deleteBlogController = async (req, res) => {
     //----here, populate() fetch the complete data of user schema in userId property
 
     await blog.userId.blogs.pull(blog);
+
+    console.log("pull(blog) :: ", blog.userId.blogs.pull(blog));
+
     await blog.userId.save();
 
     return res.status(200).send({
@@ -175,7 +177,6 @@ export const deleteBlogController = async (req, res) => {
       message: "Blog Deleted!",
     });
   } catch (error) {
-    console.log(error);
     return res.status(400).send({
       success: false,
       message: "Erorr WHile Deleteing BLog",
