@@ -42,3 +42,19 @@
   height: 100%;
   object-fit: cover;
 }
+
+@media (max-width: 768px) {
+  .loginWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .rightInfo {
+    display: none;
+  }
+}
+
+@media (max-width: 460px) {
+  .formWrapper {
+    width: 90%;
+  }
+}

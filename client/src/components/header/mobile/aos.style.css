@@ -1,0 +1,21 @@
+.sui-aos-up {
+  transform: translateY(0px);
+  opacity: 1;
+  transition: transform 1s;
+}
+.sui-aos-down1 {
+  transform: translateY(-50px);
+  transition: transform 1s;
+}
+.sui-aos-down2 {
+  transform: translateY(-40px);
+  transition: transform 1s;
+}
+.sui-aos-down3 {
+  transform: translateY(-30px);
+  transition: transform 1s;
+}
+.sui-aos-down4 {
+  transform: translateY(-20px);
+  transition: transform 1s;
+}

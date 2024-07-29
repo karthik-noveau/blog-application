@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 
 import { DeskNavbar } from "./desktop";
-import { SUIMobileNavbar } from "./mobile";
+import { MobileHeader } from "./mobile";
 import { authActions } from "../../redux/store";
 import React from "react";
 
@@ -21,7 +21,7 @@ export const Header = () => {
   return (
     <React.Fragment>
       <DeskNavbar loginInfo={loginInfo} handleLogout={handleLogout} />
-      <SUIMobileNavbar />
+      <MobileHeader loginInfo={loginInfo} handleLogout={handleLogout} />
     </React.Fragment>
   );
 };

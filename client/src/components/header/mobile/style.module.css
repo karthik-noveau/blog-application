@@ -1,0 +1,90 @@
+/* style.module.css */
+.headerWrapper {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 -2px 19px 0 #0000002e;
+}
+.leftInfo a {
+  text-decoration: none;
+}
+.leftInfo p {
+  color: #171717;
+  font-size: 28px;
+  font-weight: 500;
+}
+.rightInfo {
+  color: black;
+}
+.popupShow {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: clip-path 0.6s ease-in-out;
+  background-color: white; /* Slightly transparent gray */
+
+  clip-path: circle(100% at 50% 50%);
+}
+.popupHide {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  transition: clip-path 0.6s ease-in-out;
+  background-color: white; /* Slightly transparent gray */
+
+  clip-path: circle(0% at 100% 0%);
+}
+
+.menuContainer {
+  display: grid;
+  gap: 50px;
+  align-items: center;
+}
+.menuItemsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.menuItemsContainer .menuItem {
+  color: black;
+  font-size: 25px;
+  cursor: pointer;
+}
+.menuItemsContainer .menuItem:hover,
+.active {
+  color: #1f58bb !important;
+}
+.lastItem {
+  color: white;
+  background-color: pink;
+  border-radius: 50px;
+  height: fit-content;
+  padding: 8px 50px;
+  cursor: pointer;
+  font-size: 19px;
+
+  background: -moz-linear-gradient(199deg, #141dd0 0%, #2067c6 72%);
+  background: -webkit-linear-gradient(199deg, #141dd0 0%, #2067c6 72%);
+  background: -o-linear-gradient(199deg, #141dd0 0%, #2067c6 72%);
+  background: -ms-linear-gradient(199deg, #141dd0 0%, #2067c6 72%);
+  background: linear-gradient(199deg, #141dd0 0%, #2067c6 72%);
+}
