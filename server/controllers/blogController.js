@@ -157,7 +157,7 @@ export const updateBlogController = async (req, res) => {
 export const deleteBlogController = async (req, res) => {
   try {
     // Find the blog and populate the userId field in one query
-    const blog = await blogModel.findByIdAndDelete(req.params.id);
+    const blog = await blogModel.findById(req.params.id).populate("userId");
 
     // Check if blog exists
     if (!blog) {
