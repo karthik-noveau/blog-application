@@ -25,7 +25,7 @@ export const createBlogController = async (req, res) => {
       });
     }
 
-    const blog = new blogModel({ title, description, image, userId });
+    const blog = new blogModel({ title, description, image, user: userId });
 
     // session is created
     const session = await mongoose.startSession();
@@ -199,12 +199,22 @@ export const updateBlogController = async (req, res) => {
 
 export const deleteBlogController = async (req, res) => {
   try {
-    const blog = await blogModel
-      // .findOneAndDelete(req.params.id)
-      .findByIdAndDelete(req.params.id)
-      .populate("user");
-    await blog.user.blogs.pull(blog);
+    // populate() -> fetch the complete data of user schema in user property
+    const blog = await blogModel.findById(req.params.id).populate("user");
+    if (!blog) {
+      return res.status(404).send({
+        success: false,
+        message: "Blog not found!",
+      });
+    }
+
+    // Pull() -> remove the blog from the user's blogs array
+    blog.user.blogs.pull(blog._id);
     await blog.user.save();
+
+    // Delete the blog from blogs collection
+    await blogModel.findByIdAndDelete(blog._id);
+
     return res.status(200).send({
       success: true,
       message: "Blog Deleted!",
