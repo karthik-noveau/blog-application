@@ -16,7 +16,7 @@ export function Login() {
   const onLogin = async (values) => {
     try {
       const { data } = await axios.post(
-        "https://blog-application-hrw2.onrender.com/api/v1/user/login",
+        `${process.env.REACT_APP_SERVER_URL}/api/v1/user/login`,
         {
           email: values.email,
           password: values.password,

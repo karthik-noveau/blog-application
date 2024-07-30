@@ -21,7 +21,7 @@ export const UpdateBlog = () => {
 
   const getBlogData = async () => {
     const { data } = await axios.get(
-      `https://blog-application-hrw2.onrender.com/api/v1/blog/get-blog/${blogId}`
+      `${process.env.REACT_APP_SERVER_URL}/api/v1/blog/get-blog/${blogId}`
     );
     if (data.success) {
       setBlogData(data.blog);
@@ -31,7 +31,7 @@ export const UpdateBlog = () => {
   const onBlogUpdate = async (values) => {
     try {
       const { data } = await axios.put(
-        `https://blog-application-hrw2.onrender.com/api/v1/blog/update-blog/${blogId}`,
+        `${process.env.REACT_APP_SERVER_URL}/api/v1/blog/update-blog/${blogId}`,
         {
           userId: loginInfo.id,
           title: values.title,

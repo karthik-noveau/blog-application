@@ -23,7 +23,7 @@ export function AllBlogs() {
     setIsLoading(true);
     try {
       const { data } = await axios.get(
-        "https://blog-application-hrw2.onrender.com/api/v1/blog/all-blogs"
+        `${process.env.REACT_APP_SERVER_URL}/api/v1/blog/all-blogs`
       );
       if (data.success) {
         setBlogsList(data.blogs);

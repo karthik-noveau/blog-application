@@ -14,7 +14,7 @@ export function Register() {
   const onRegister = async (values) => {
     try {
       const { data } = await axios.post(
-        "https://blog-application-hrw2.onrender.com/api/v1/user/register",
+        `${process.env.REACT_APP_SERVER_URL}/api/v1/user/register`,
         {
           username: values.firstName,
           email: values.email,

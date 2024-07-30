@@ -35,7 +35,7 @@ export function UserBlogs() {
     setIsLoading(true);
     try {
       const { data } = await axios.get(
-        `https://blog-application-hrw2.onrender.com/api/v1/blog/user-blogs/${loginInfo.id}`
+        `${process.env.REACT_APP_SERVER_URL}/api/v1/blog/user-blogs/${loginInfo.id}`
       );
       if (data.success) {
         setBlogsList(data.userBlogs.blogs);
@@ -55,7 +55,7 @@ export function UserBlogs() {
     setIsLoading(true);
     try {
       const { data } = await axios.delete(
-        `https://blog-application-hrw2.onrender.com/api/v1/blog/delete-blog/${info._id}`
+        `${process.env.REACT_APP_SERVER_URL}/api/v1/blog/delete-blog/${info._id}`
       );
       if (data.success) {
         dispatch(blogActions.setIsBlogDeleted(true));

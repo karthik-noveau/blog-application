@@ -14,7 +14,7 @@ export const CreateBlog = () => {
     console.log(values, loginInfo);
     try {
       const { data } = await axios.post(
-        "https://blog-application-hrw2.onrender.com/api/v1/blog/create-blog",
+        `${process.env.REACT_APP_SERVER_URL}/api/v1/blog/create-blog`,
         {
           userId: loginInfo.id,
           title: values.title,
