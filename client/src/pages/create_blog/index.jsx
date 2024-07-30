@@ -1,5 +1,5 @@
+import { useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { CreateBlogForm } from "./form";
@@ -8,10 +8,12 @@ import styles from "./style.module.css";
 
 export const CreateBlog = () => {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
+
   const loginInfo = JSON.parse(localStorage.getItem("blog-accountDetails"));
 
   const onBlogCreate = async (values) => {
-    console.log(values, loginInfo);
+    setIsLoading(true);
     try {
       const { data } = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/api/v1/blog/create-blog`,
@@ -23,9 +25,11 @@ export const CreateBlog = () => {
         }
       );
       if (data.success) {
+        setIsLoading(false);
         navigate("/user-blogs");
       }
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
   };
@@ -38,6 +42,7 @@ export const CreateBlog = () => {
         <CreateBlogForm
           onFormFailed={onFormFailed}
           onBlogCreate={onBlogCreate}
+          isLoading={isLoading}
         />
       </div>
     </div>

@@ -1,8 +1,9 @@
 import { Button, Form, Input } from "antd";
 
 import "./style.override.css";
+import { useState } from "react";
 
-export const LoginForm = ({ onLogin, onFormFailed }) => {
+export const LoginForm = ({ onLogin, isLoading, onFormFailed }) => {
   return (
     <Form
       name="basic"
@@ -41,8 +42,8 @@ export const LoginForm = ({ onLogin, onFormFailed }) => {
       </Form.Item>
 
       <Form.Item className="btn">
-        <Button type="primary" htmlType="submit">
-          Submit
+        <Button type="primary" loading={isLoading} htmlType="submit">
+          {!isLoading && <>Submit</>}
         </Button>
       </Form.Item>
     </Form>

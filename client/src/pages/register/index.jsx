@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -10,8 +10,10 @@ import blogIllustration from "../../assets/login/blogIllustration.jpg";
 
 export function Register() {
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onRegister = async (values) => {
+    setIsLoading(true);
     try {
       const { data } = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/api/v1/user/register`,
@@ -22,9 +24,11 @@ export function Register() {
         }
       );
       if (data.success) {
+        setIsLoading(false);
         navigate("/blogs");
       }
     } catch (error) {
+      setIsLoading(false);
       alert("user already exist");
     }
   };
@@ -38,7 +42,11 @@ export function Register() {
           <p>Welcome!</p>
         </div>
         <div className={styles.formWrapper}>
-          <RegisterForm onRegister={onRegister} onFormFailed={onFormFailed} />
+          <RegisterForm
+            onRegister={onRegister}
+            isLoading={isLoading}
+            onFormFailed={onFormFailed}
+          />
         </div>
         <p className={styles.signupInfo}>
           Already have an account?{" "}

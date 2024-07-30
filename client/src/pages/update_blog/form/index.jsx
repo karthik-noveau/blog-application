@@ -3,7 +3,12 @@ import { Button, Form, Input } from "antd";
 import "./style.override.css";
 import { useEffect } from "react";
 
-export const UpdateBlogForm = ({ onFormFailed, onFormUpdate, blogData }) => {
+export const UpdateBlogForm = ({
+  onFormFailed,
+  isLoading,
+  onFormUpdate,
+  blogData,
+}) => {
   const [form] = Form.useForm();
 
   useEffect(() => {
@@ -70,8 +75,8 @@ export const UpdateBlogForm = ({ onFormFailed, onFormUpdate, blogData }) => {
       </Form.Item>
 
       <Form.Item className="btn">
-        <Button type="primary" htmlType="submit">
-          Update
+        <Button type="primary" loading={isLoading} htmlType="submit">
+          {!isLoading && <>Update</>}
         </Button>
       </Form.Item>
     </Form>

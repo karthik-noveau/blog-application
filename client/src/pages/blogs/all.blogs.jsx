@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import { mongodbDateConvertion } from "../../components/mongodb_date_convertion";
 import { Card } from "../../components/card";
+import { Loader } from "../../components/Loader/Loader";
 
 import styles from "./style.module.css";
 
@@ -38,7 +39,7 @@ export function AllBlogs() {
 
   function renderBlogs() {
     if (isLoading) {
-      return <div className={styles.emptyStateWrapper}>loading...</div>;
+      return <Loader />;
     } else if (updatedBlogsList.length === 0) {
       return (
         <div className={styles.emptyStateWrapper}>

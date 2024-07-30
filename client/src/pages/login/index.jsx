@@ -1,19 +1,22 @@
-import React from "react";
-
-import styles from "./style.module.css";
-import { LoginForm } from "./form";
-
-import blogIllustration from "../../assets/login/blogIllustration.jpg";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
+
+import { LoginForm } from "./form";
 import { authActions } from "../../redux/store";
 
+import styles from "./style.module.css";
+
+import blogIllustration from "../../assets/login/blogIllustration.jpg";
+
 export function Login() {
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const onLogin = async (values) => {
+    setIsLoading(true);
     try {
       const { data } = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/api/v1/user/login`,
@@ -23,11 +26,13 @@ export function Login() {
         }
       );
       if (data.success) {
+        setIsLoading(false);
         navigate("/blogs");
         dispatch(authActions.login(data.user._id));
       }
     } catch {
       alert("user not exist");
+      setIsLoading(false);
     }
   };
   const onFormFailed = (errorInfo) => {};
@@ -39,7 +44,11 @@ export function Login() {
           <p>Welcome!</p>
         </div>
         <div className={styles.formWrapper}>
-          <LoginForm onLogin={onLogin} onFormFailed={onFormFailed} />
+          <LoginForm
+            onLogin={onLogin}
+            isLoading={isLoading}
+            onFormFailed={onFormFailed}
+          />
         </div>
         <p className={styles.signupInfo}>
           Don't have an account?{" "}

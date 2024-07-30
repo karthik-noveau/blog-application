@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 import { mongodbDateConvertion } from "../../components/mongodb_date_convertion";
 import { Card } from "../../components/card";
+import { blogActions } from "../../redux/store";
+import { Loader } from "../../components/Loader/Loader";
+import { EmptyState } from "../../components/empty_state";
 
 import styles from "./style.module.css";
 
-import { EmptyState } from "../../components/empty_state";
-
 import emptyFolder from "../../assets/blogs/emptyFolder.png";
-import { blogActions } from "../../redux/store";
 
 export function UserBlogs() {
   const [blogsList, setBlogsList] = useState([]);
@@ -69,7 +69,7 @@ export function UserBlogs() {
 
   function renderBlogs() {
     if (isLoading) {
-      return <div className={styles.emptyStateWrapper}>loading...</div>;
+      return <Loader />;
     } else if (blogsList.length === 0) {
       return (
         <div className={styles.emptyStateWrapper}>

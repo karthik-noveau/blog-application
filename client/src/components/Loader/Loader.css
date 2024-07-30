@@ -1,0 +1,29 @@
+ .main_loader {
+   display: flex;
+   flex-direction: column;
+   height: 100vh;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .main_loader p {
+   font-size: 14px;
+   margin-top:26px;
+ }
+
+ .sbl-circ {
+  height: 44px;
+  width: 44px;
+  color: black;
+  position: relative;
+  display: inline-block;
+  border:2px solid;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: rotate 1s linear infinite; }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }

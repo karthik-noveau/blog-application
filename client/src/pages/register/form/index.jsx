@@ -2,7 +2,7 @@ import { Button, Form, Input } from "antd";
 
 import "./style.override.css";
 
-export const RegisterForm = ({ onRegister, onFormFailed }) => {
+export const RegisterForm = ({ onRegister, isLoading, onFormFailed }) => {
   return (
     <Form
       name="basic"
@@ -77,8 +77,8 @@ export const RegisterForm = ({ onRegister, onFormFailed }) => {
       </Form.Item> */}
 
       <Form.Item className="btn">
-        <Button type="primary" htmlType="submit">
-          Submit
+        <Button type="primary" loading={isLoading} htmlType="submit">
+          {!isLoading && <>Submit</>}
         </Button>
       </Form.Item>
     </Form>

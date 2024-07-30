@@ -162,13 +162,13 @@ export const MobileHeader = ({ loginInfo, handleLogout }) => {
       </div>
 
       {/* static space  */}
-      <div
+      {/* <div
         style={{
           backgroundColor: navColor,
           height: navSize,
           transition: "all 0.5s",
         }}
-      />
+      /> */}
     </React.Fragment>
   );
 };
