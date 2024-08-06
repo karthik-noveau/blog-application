@@ -25,13 +25,7 @@ const app = express();
 //      and other settings to handle incoming HTTP requests and generate responses
 
 //  ************** middlewares ***************
-app.use(
-  cors({
-    origin: ["https://blog-application-two-mu.vercel.app"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(json());
 app.use(morgan("dev"));
 
