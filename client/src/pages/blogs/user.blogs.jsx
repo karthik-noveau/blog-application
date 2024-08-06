@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { mongodbDateConvertion } from "../../components/mongodb_date_convertion";
 import { Card } from "../../components/card";
-import { blogActions } from "../../redux/store";
+
 import { Loader } from "../../components/Loader/Loader";
 import { EmptyState } from "../../components/empty_state";
 
@@ -16,20 +16,15 @@ import emptyFolder from "../../assets/blogs/emptyFolder.png";
 export function UserBlogs() {
   const [blogsList, setBlogsList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { loginInfo, isBlogDeleted } = useSelector((state) => ({
+  const { loginInfo } = useSelector((state) => ({
     loginInfo: state.auth.loginInfo,
-    isBlogDeleted: state.blog.isBlogDeleted,
   }));
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   useEffect(() => {
     getUserBlogs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    getUserBlogs();
-  }, [isBlogDeleted]);
 
   const getUserBlogs = async () => {
     setIsLoading(true);
@@ -58,8 +53,7 @@ export function UserBlogs() {
         `${process.env.REACT_APP_SERVER_URL}/api/v1/blog/delete-blog/${info._id}`
       );
       if (data.success) {
-        dispatch(blogActions.setIsBlogDeleted(true));
-        setIsLoading(false);
+        getUserBlogs();
       }
     } catch (error) {
       setIsLoading(false);

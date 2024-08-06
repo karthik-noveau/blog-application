@@ -21,14 +21,12 @@ function App() {
     if (!isAuthenticated && !isAuthRoute) {
       navigate("/login");
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated, isAuthRoute]);
 
   return (
     <React.Fragment>
       {!isAuthRoute && <Header />}
-      {/* {!isAuthRoute && <div className={styles.headerBottomCotainer}></div>} */}
       <Routes>
         <Route path="/" element={<AllBlogs />} />
         <Route path="/login" element={<Login />} />

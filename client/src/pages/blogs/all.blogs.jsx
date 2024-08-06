@@ -13,7 +13,6 @@ import emptyFolder from "../../assets/blogs/emptyFolder.png";
 
 export function AllBlogs() {
   const [blogsList, setBlogsList] = useState([]);
-  const [updatedBlogsList, setUpdatedBlogsList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -27,8 +26,7 @@ export function AllBlogs() {
         `${process.env.REACT_APP_SERVER_URL}/api/v1/blog/all-blogs`
       );
       if (data.success) {
-        setBlogsList(data.blogs);
-        setUpdatedBlogsList(data.blogs.filter((blog, index) => index < 9));
+        setBlogsList(data.blogs.filter((blog, index) => index < 9));
         setIsLoading(false);
       }
     } catch (error) {
@@ -37,10 +35,10 @@ export function AllBlogs() {
     }
   };
 
-  function renderBlogs() {
+  function RenderBlogs() {
     if (isLoading) {
       return <Loader />;
-    } else if (updatedBlogsList.length === 0) {
+    } else if (blogsList.length === 0) {
       return (
         <div className={styles.emptyStateWrapper}>
           <EmptyState image={emptyFolder} />
@@ -50,7 +48,7 @@ export function AllBlogs() {
       return (
         <div className={styles.blogsWrapper}>
           <div className={styles.blogsContainer}>
-            {updatedBlogsList.map((blog) => {
+            {blogsList.map((blog) => {
               let data = {
                 image: blog.image,
                 title: blog.title,
@@ -65,5 +63,5 @@ export function AllBlogs() {
     }
   }
 
-  return <React.Fragment>{renderBlogs()}</React.Fragment>;
+  return <RenderBlogs />;
 }

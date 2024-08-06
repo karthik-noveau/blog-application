@@ -24,24 +24,10 @@ const authSlice = createSlice({
   },
 });
 
-const blogSlice = createSlice({
-  name: "blog",
-  initialState: {
-    isBlogDeleted: false,
-  },
-  reducers: {
-    setIsBlogDeleted(state, action) {
-      state.isBlogDeleted = action.payload;
-    },
-  },
-});
-
 export const authActions = authSlice.actions;
-export const blogActions = blogSlice.actions;
 
 export const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
-    blog: blogSlice.reducer,
   },
 });
